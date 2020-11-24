@@ -1,0 +1,109 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<div id="newbooks" id="team" class="container-fluid padding">
+	<div class="row welcome text-center">
+		<div class="col-12">
+			<h1 class="display-4">New Book</h1>
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+    <div class="row main-contentr">
+        <div class="col-lg-10">
+          <form action="/addbook" method="POST" class="was-validated" enctype="multipart/form-data">
+            {% csrf_token %}
+              <div class="form-group">
+                <label>Book name:</label>
+                <input type="text" class="form-control" placeholder="Enter book name" name="book" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <label>Book Discription:</label>
+                <textarea required class="form-control" name="discription" placeholder="Discribe the book" rows="5"></textarea>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <label>Author name:</label>
+                <input type="text" class="form-control" placeholder="Enter authors name" name="author" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <label>Catagory:</label>
+                <select name="catagory" class="form-control">
+                  <option disabled selected>Choose...</option>
+                  {% for catagory in catagories %}
+                    <option>{{catagory.name}}</option>
+                  {% endfor %}
+                </select>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <label>Image:</label>
+                <input type="file" name="img" accept="image/*" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+<div id="newbooks" id="team" class="container-fluid padding">
+	<div class="row welcome text-center">
+		<div class="col-12">
+			<h1 class="display-4">New Catagory</h1>
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+    <div class="row main-contentr">
+        <div class="col-lg-10">
+<form action="/addcatagory" method="POST" class="was-validated">
+  {% csrf_token %}
+    <div class="form-group">
+      <label>Catagory name:</label>
+      <input type="text" class="form-control" placeholder="Enter catagory name" name="catagory" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</div>
+</div>
+
+<div id="newbooks" id="team" class="container-fluid padding">
+	<div class="row welcome text-center">
+		<div class="col-12">
+			<h1 class="display-4">Delete Catagory</h1>
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+    <div class="row main-contentr">
+        <div class="col-lg-10">
+<form action="/delcatagory" method="POST" class="was-validated">
+  {% csrf_token %}
+    <div class="form-group">
+      <label for="uname">Catagory name:</label>
+      <select id="inputState" name="catagory" class="form-control">
+        <option disabled selected>Choose...</option>
+        {% for catagory in catagories %}
+          <option>{{catagory.name}}</option>
+        {% endfor %}
+      </select>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Delete</button>
+  </form>
+</div>
+</div>
+</div>
+
+<div class="padding" style="margin-bottom: 30px;"></div>
+{% endblock content %}

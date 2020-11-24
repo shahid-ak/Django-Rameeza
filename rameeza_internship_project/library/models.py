@@ -8,3 +8,14 @@ class lenders(models.Model):
     branch = models.CharField(max_length=150)
     authid = models.IntegerField()
 
+class catagories(models.Model):
+    name = models.CharField(max_length=150)
+    count = models.IntegerField(default=0)
+
+class books(models.Model):
+    bookname = models.CharField(max_length=150)
+    discription = models.TextField()
+    author = models.CharField(max_length=150)
+    catagory = models.CharField(max_length=150)
+    img=models.ImageField(upload_to='book')
+
