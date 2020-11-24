@@ -1,0 +1,127 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Library Managent</title>
+    <link rel = "icon" href ="static/img/hiclipart.com.png"  type = "image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background:#003535">
+    <div  class="container-fluid">
+        <a class="navbar-brand" id ="logo" href="/">
+            <i class="fas fa-book"></i><span> Library Management</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#pricing">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#connect">Connect</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--- Image Slider -->
+<div id="slides" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+         <div class="carousel-item active" 
+            style="background-color:#003a3a;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            height: 85vh;
+            width: 100%;">
+            <div class="carousel-caption">
+                <h1 class="display-2"><i class="fas fa-book" aria-hidden="true"></i> Library Management</h1>
+                <div class="padding">
+
+                </div>
+                <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location.href = '#newbooks';">New Arrival</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href = 'logreg';">All Books</button>
+            </div>
+         </div>
+     </div>
+ </div>
+<div id="newbooks" id="team" class="container-fluid padding">
+	<div class="row welcome text-center">
+		<div class="col-12">
+			<h1 class="display-4">New Books</h1>
+		</div>
+	</div>
+</div>
+<span>Catagories: </span>
+ <button type="button" class="btn btn-success">Primary</button>
+ <button type="button" class="btn btn-primary">Primary</button>
+ <button type="button" class="btn btn-primary">Primary</button>
+ <button type="button" class="btn btn-primary">Primary</button>
+ <button type="button" class="btn btn-primary">All</button> 
+ <div class="padding"></div>
+<!--- Cards -->
+<div class="container-fluid padding">
+	<div class="row padding">
+		<div class="col-md-3">
+			<div class="card">
+				<img src="img/library-book-ladder-step.jpg" class="card-img-top">
+				<div class="card-body">
+					<a href="$"><h4 class="card-title">DAn Brown</h4></a>
+					<p class="card-text">Jabradisk</p>
+				</div>
+			</div>
+        </div>
+        <div class="col-md-3">
+			<div class="card">
+				<img src="img/library-book-ladder-step.jpg" class="card-img-top">
+				<div class="card-body">
+					<a href="$"><h4 class="card-title">DAn Brown</h4></a>
+					<p class="card-text">Jabradisk</p>
+				</div>
+			</div>
+        </div>
+        <div class="col-md-3">
+			<div class="card">
+				<img src="img/library-book-ladder-step.jpg" class="card-img-top">
+				<div class="card-body">
+					<a href="$"><h4 class="card-title">DAn Brown</h4></a>
+					<p class="card-text">Jabradisk</p>
+				</div>
+			</div>
+        </div>
+        <div class="col-md-3">
+			<div class="card">
+				<img src="img/library-book-ladder-step.jpg" class="card-img-top">
+				<div class="card-body">
+					<a href="$"><h4 class="card-title">DAn Brown</h4></a>
+					<p class="card-text">Jabradisk</p>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+<div class="padding"></div>
+<footer class="footer">
+    <div class="container">
+      <span class="text-muted">Library Management system.</span>
+    </div>
+  </footer>
+</body>
+</html>
