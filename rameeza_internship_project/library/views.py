@@ -14,7 +14,10 @@ def home(request):
         if request.user.is_superuser:
             cats=catagories.objects.all()
             return render(request,'adminhome.html',{'catagories':cats})
-        return render(request,'home.html')
+        else:
+            cats=catagories.objects.all()
+            new_books = books.objects.all().order_by('-id')[:4]
+            return render(request,'home.html',{'catagories':cats,'books':new_books})
     return redirect('login')
 
 def login(request):
@@ -87,4 +90,42 @@ def delcatagory(request):
                     return redirect('/home')
                 else:
                     pass
+    return redirect('/login')
+
+def allbooks(request):
+    if request.user.is_authenticated:
+        all_books = books.objects.all()
+        cat = catagories.objects.all()
+        return render(request,'books.html',{'books':all_books,'catagories':cat})
+    return redirect('/login')
+
+def opencatagory(request,cat_id):
+    if request.user.is_authenticated:
+        cat = catagories.objects.get(id=cat_id)
+        all_books = books.objects.filter(catagory=cat.name)
+        cat = catagories.objects.all()
+        return render(request,'books.html',{'books':all_books,'catagories':cat})
+    return redirect('/login')
+
+def viewbook(request,book_id):
+    if request.user.is_authenticated:
+        book = books.objects.get(id=book_id)
+        return render(request,'viewbook.html',{'book':book})
+    return redirect('/login')
+
+def delbook(request,book_id):
+    if request.user.is_authenticated:
+        if request.user.is_superuser:
+            books.objects.filter(id=book_id).delete()
+            return redirect('/books')
+    return redirect('/login')
+
+def users(request):
+    if request.user.is_authenticated:
+        all_users = lenders.objects.all()
+        return render(request,'allusers.html',{'users':all_users})
+    return redirect('/login')
+
+def logout(request):
+    auth.logout(request)
     return redirect('/login')

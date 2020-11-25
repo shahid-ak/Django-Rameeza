@@ -1,14 +1,14 @@
 {% extends 'adminbase.html' %}
 {% block content %}
 <div id="newbooks" id="team" class="container-fluid padding">
-	<div class="row welcome text-center">
-		<div class="col-12">
-			<h1 class="display-4">New Book</h1>
+    <div class="row welcome text-center">
+		    <div class="col-12">
+    <h1 class="display-4">New Book</h1>
 		</div>
 	</div>
 </div>
 <div class="container-fluid">
-    <div class="row main-contentr">
+  <div class="row main-contentr">
         <div class="col-lg-10">
           <form action="/addbook" method="POST" class="was-validated" enctype="multipart/form-data">
             {% csrf_token %}

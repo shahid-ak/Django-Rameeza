@@ -1,0 +1,27 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+	<div class="container py-5">
+		<div class="row">
+			<div class="col-lg-6" style="background:#003535; color: #345754;">
+				<img src="{{book.img.url}}" class="img-fluid" style="min-width: 100%; margin-top: 15px; margin-bottom: 15px;">
+			</div>
+			<div class="col-xs-12 col-lg-6"style="background: #003535; color: white; padding:20px;">
+				{% if user.is_superuser %}
+				<div style="float: right;"><a href="/delbook/{{book.id}}"><i class="fa fa-trash"></i></a></div>
+				{% endif %}
+				<h4>{{book.bookname}}</h4>
+				<h5>{{book.author}}</h5>
+				<div class="padding"></div>
+				<p>{{book.discription}}</p>
+				<div class="padding"></div>
+				<p>Catagory: {{book.catagory}}</p>
+				<div class="padding"></div>
+				{% if not user.is_superuser %}
+				<button type="submit" class="col-12 btn btn-primary btn-lg">Request</button>
+				{% endif %}
+			</div>
+		</div>
+	 </div>
+	 <div class="padding"></div>
+
+  {% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<div class="padding"></div>
+    <span>Catagories: </span>
+    <button type="button" class="btn btn-success" onclick="window.location.href = '/books';">All</button>
+    {% for catagory in catagories%}
+    <button type="button" class="btn btn-primary" onclick="window.location.href = '/opencatagory/{{catagory.id}}';">{{catagory.name}}</button>
+    {% endfor %}
+ <div class="padding"></div>
+<!--- Cards -->
+<div class="container-fluid padding">
+	<div class="row padding">
+        {% for book in books %}
+		<div class="col-md-3" style="margin-bottom: 30px;">
+			<div class="card">
+				<img src="{{book.img.url}}" height="300px;" style="object-fit: cover" class="card-img-top">
+				<div class="card-body">
+					<a href="/viewbook/{{book.id}}"><h5 class="card-title">{{book.bookname}}</h5></a>
+                </div>
+			</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+  {% endblock content %}

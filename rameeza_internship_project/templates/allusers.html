@@ -1,0 +1,31 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+            <div class="table-responsive">
+                <table class="table">
+                    <caption>List of users</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">USN</th>
+                        <th scope="col">Branch</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for user in users %}
+                      <tr>
+                        <th scope="row">{{user.authid}}</th>
+                        <td>{{user.name}}</td>
+                        <td>{{user.usn}}</td>
+                        <td>{{user.branch}}</td>
+                      </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endblock content %}
